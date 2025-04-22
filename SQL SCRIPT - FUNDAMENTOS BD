@@ -846,7 +846,7 @@ END;
 GO
 
 
---prueba de la función creada
+--prueba de la función 4 creada
 SELECT 
     id_encargo,
     dbo.dias_faltantes_entrega(id_encargo) AS aviso
@@ -859,21 +859,6 @@ GO
 
 -- 5. Promedio de ventas por cada cliente
 
-CREATE FUNCTION promedio_ventas_por_cliente()
-RETURNS DECIMAL(10,2)
-AS
-BEGIN
-    DECLARE @promedio_cliente DECIMAL (10,2);
-
-    SELECT @promedio_cliente = AVG(total)
-    FROM Pedidos;
-
-    RETURN @promedio_cliente;
-END;
-GO
-
-
---prueba de la función creada
 SELECT 
     id_cliente,
     FORMAT(AVG(total), 'N2') AS promedio_ventas
